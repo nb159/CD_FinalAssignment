@@ -84,12 +84,12 @@ public sealed class GameEngine
         {
             switch (currentLevel)
             {
-            case (1):
+                case (1):
                     Level = gameData.First;
                     break;
-                // case (2):
-                //     Level = gameData.Second;
-                //     break;
+                case (2):
+                    Level = gameData.Second;
+                    break;
                 // case (3):
                 //     Level = gameData.Third;
                 //     break;
