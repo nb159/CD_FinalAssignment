@@ -93,7 +93,7 @@ public class GameObject : IGameObject, IMovement
     //     _posY += dy;
     // }
         //DIALOG STUFF
-    public Dialog? dialog;
+    public List<Dialog> dialog = new ();
             public Map map = GameEngine.Instance.GetMap();
 
     protected List<DialogNode> dialogNodes = new List<DialogNode>();
@@ -133,12 +133,12 @@ public class GameObject : IGameObject, IMovement
         }
 
 
-        if(objectCollidedWith.HasDialog()) collisionObjects.First().dialog.Start();
+        if(objectCollidedWith.HasDialog()) collisionObjects.First().dialog[GameEngine.Instance.currentLevel - 1].Start();
         
         
     }
 
     public bool HasDialog(){
-        return (dialog == null) ? false : true;
+        return (dialog.Count == 0) ? false : true;
     }
 }

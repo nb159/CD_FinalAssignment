@@ -12,7 +12,7 @@ public sealed class GameEngine
     public IGameObjectFactory gameObjectFactory;
 
     // Current level when we start is 1
-    public int currentLevel = 1;
+    public int currentLevel = 2;
 
     public static GameEngine Instance
     {

@@ -9,7 +9,7 @@ class Program
         //Setup
         Console.CursorVisible = false;
          Stopwatch gameTimer = new Stopwatch();
-         TimeSpan gameDuration = TimeSpan.FromSeconds(20);
+         TimeSpan gameDuration = TimeSpan.FromSeconds(20000);
         var runGame = true;
         var engine = GameEngine.Instance;
         var inputHandler = InputHandler.Instance;
