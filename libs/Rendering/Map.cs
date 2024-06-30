@@ -66,7 +66,14 @@ public class Map {
         set { _mapHeight = value; Initialize();} // Setter
     }
 
-    public GameObject Get(int x, int y){
+    public GameObject? Get(int x, int y){
+        if(x < 0 || x >= _mapHeight){
+            return null;
+        }
+        if(y < 0 || y >= _mapWidth){
+            return null;
+        }
+
         return GameObjectLayer[x, y];
     }
 

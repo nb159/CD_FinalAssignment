@@ -16,11 +16,6 @@
         "PosY": 0
       },
       {
-        "Type": 6,
-        "PosX": 2,
-        "PosY": 9
-      },
-      {
         "Type": 5,
         "PosX": 3,
         "PosY": 5
@@ -345,7 +340,23 @@
         "PosX": 1,
         "PosY": 1
       }
-    ]
+    ],
+    "nodeText":[
+          {"text":"Welcome, do you know the rules of this game"},
+          {"text":"The real question is, do you want to know the rules?"},
+          {"text":"There are x amount of boxes and x amount of targets. fill every target with a box to win!"},
+          {"text":"RIP, mash some buttons and hope for the best, good luck!"},
+          {"text":"Goodbye!"}
+      ],
+      "nodeResponses":[
+          {"text":"No I dont."},
+          {"text":"Yes, I know g"},
+          {"text":"Yes, I do."},
+          {"text":"you know what? nah I dont need it."},
+          {"text":"I still dont get it"},
+          {"text":"sound great, thank you!"}
+      ]
+    
   },
     "Second": {
       "gameObjects": [
@@ -450,6 +461,23 @@
         {"Type": 1, "PosX": 13, "PosY": 11},
         {"Type": 1, "PosX": 14, "PosY": 11},
         {"Type": 1, "PosX": 15, "PosY": 11}
+      
+      ],
+      "nodeText":[
+          {"text":"Hello, do you need any help?"},
+          {"text":"Ok, I will give you a hint. You sure you need it?"},
+          {"text":"Ok. Good luck!"},
+          {"text":"Be careful with the boxes. They don't all belong to their closest targets!"},
+          {"text":"Goodbye!"}
+      ],
+      "nodeResponses":[
+          {"text":"Yes, I need some help."},
+          {"text":"No, thanks, I got it."},
+          {"text":"Yes, I do."},
+          {"text":"Nevermind, I don't need it."},
+          {"text":"Okay, goodbye!"},
+          {"text":"Oh ok! Thanks!"}
       ]
+      
     }
  }
