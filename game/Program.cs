@@ -9,7 +9,7 @@ class Program
         //Setup
         Console.CursorVisible = false;
          Stopwatch gameTimer = new Stopwatch();
-         TimeSpan gameDuration = TimeSpan.FromSeconds(20);
+         TimeSpan gameDuration = TimeSpan.FromSeconds(20000);
         var runGame = true;
         var engine = GameEngine.Instance;
         var inputHandler = InputHandler.Instance;
@@ -50,21 +50,24 @@ class Program
                 inputHandler.Handle(keyInfo);
             }
 
-            // Checks if it's the last level
-            // if (engine.currentLevel == 3 && engine.endGame() == false)
-            // {
-            //     engine.Render();
-            //     Console.WriteLine("Game finished. All levels mastered!");
-            //     break;
-            // }
+            //Checks if it's the last level
+            if (engine.currentLevel == 2 && engine.endGame() == false)
+            {
+                engine.Render();
+                Console.WriteLine("Game finished. All levels mastered!");
+                runGame = false;
+
+                break;
+            }
 
             if (engine.endGame() == false)
             {
                 engine.Render();
+                engine.currentLevel++;
+                engine.Setup(false);
                 Console.WriteLine("You escaped!");
-                runGame = false;
             }
-                // Add a delay of 1 second
+            // Add a delay
             Thread.Sleep(10);
 
         }

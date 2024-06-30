@@ -37,6 +37,7 @@ public static class FileHandler
         {
             throw new InvalidOperationException("JSON file path not provided in environment variable");
         }
+            Console.WriteLine(filePath);
 
         try
         {

@@ -38,6 +38,10 @@ public sealed class GameEngine
 
     public static List<GameObject> gameObjects = new List<GameObject>();
 
+    //this solution assumes that every nodeText has exactly two responses
+    public List<string> nodeText = new List<string>();
+    public List<string> nodeResponses = new List<string>();
+
 
     public Map GetMap()
     {
@@ -108,11 +112,24 @@ public sealed class GameEngine
         {
             currentLevel = level_from_json.Value;
         }
+        //Node Text
+        foreach (var jsonNodeText in Level.nodeText)
+        {
+            Console.WriteLine("json: " + jsonNodeText.text);
+            nodeText.Add(jsonNodeText.text.ToString());
+        }
+        //Text node responses
+        foreach (var jsonResponseText in Level.nodeResponses)
+        {
+            nodeResponses.Add(jsonResponseText.text.ToString());
+        }
 
         foreach (var gameObject in Level.gameObjects)
         {
             AddGameObject(CreateGameObject(gameObject));
         }
+
+    
 
         _focusedObject = gameObjects.OfType<Player>().First();
 

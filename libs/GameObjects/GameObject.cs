@@ -93,8 +93,10 @@ public class GameObject : IGameObject, IMovement
     //     _posY += dy;
     // }
         //DIALOG STUFF
+    //public List<Dialog> dialog = new ();
     public Dialog? dialog;
-            public Map map = GameEngine.Instance.GetMap();
+
+    public Map map = GameEngine.Instance.GetMap();
 
     protected List<DialogNode> dialogNodes = new List<DialogNode>();
 
@@ -123,22 +125,27 @@ public class GameObject : IGameObject, IMovement
         
         Console.WriteLine("Collision with " + collisionObjects.First().Type);
         //if object is an Obstacle or the Target --> return
-        if(objectCollidedWith.Type == GameObjectType.Obstacle || objectCollidedWith.Type == GameObjectType.Target ) return;
-
+        if(objectCollidedWith.Type == GameObjectType.Obstacle || objectCollidedWith.Type == GameObjectType.Target) return;
         //if object is a Box --> check if it can be moved
         if(objectCollidedWith.Type == GameObjectType.Box){
+            if(map.Get(goToY + dy, goToX + dx) == null) return;
             GameObject? nextNextObject = map.Get(goToY + dy, goToX + dx);
             if(nextNextObject.Type == GameObjectType.Obstacle || nextNextObject.Type == GameObjectType.Box) return;
+            Console.WriteLine("Moving Box");
             objectCollidedWith.Move(dx, dy);
         }
 
 
+        // if(objectCollidedWith.HasDialog()) collisionObjects.First().dialog[GameEngine.Instance.currentLevel - 1].Start();
         if(objectCollidedWith.HasDialog()) collisionObjects.First().dialog.Start();
         
         
     }
 
     public bool HasDialog(){
-        return (dialog == null) ? false : true;
+        // return (dialog.Count == 0) ? false : true;
+        Console.WriteLine("Dialog: " + dialog);
+            return (dialog == null) ? false : true;
+
     }
 }
